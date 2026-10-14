@@ -34,6 +34,7 @@
     border-bottom: 2.5px dashed #ffffff;
     padding-top: 0.08px;
     padding-bottom: 0.08px;
+    margin-top: -5px;
     margin-bottom: -1px;
   }
     
@@ -67,6 +68,21 @@
   min-height: 100vh;
   margin: 0; /* Menghilangkan margin bawaan browser */
 }
+  /* Wadah pelindung untuk membuat header menempel */
+  .navigasi-tetap {
+    position: sticky; /* KUNCI UTAMA: Membuat elemen menempel saat disentuh batas atas */
+    top: 0; /* Menempel tepat di titik 0 (paling atas layar) */
+    z-index: 999; /* Memastikan wadah ini selalu berada di lapisan paling depan, tidak tertimpa teks lain */
+    
+    /* Efek Kaca Buram agar teks yang lewat di bawahnya tidak mengganggu */
+    background-color: rgba(0, 0, 0, 0.4); 
+    backdrop-filter: blur(8px); 
+    -webkit-backdrop-filter: blur(8px); /* Untuk dukungan browser Safari/iPhone */
+    
+    padding-top: 20px; /* Jarak aman dari ujung atas HP */
+    padding-bottom: 5px;
+    margin-top: -20px; /* Menyesuaikan dengan margin body Anda sebelumnya */
+  }
 
   /* untuk header website*/
   .header {
@@ -74,8 +90,8 @@
     flex-direction: row; /* Mengembalikan urutan dari kiri ke kanan */
     justify-content: space-between; /* KUNCI UTAMA: Mendorong elemen ke ujung kiri dan kanan */
     align-items: center; /* Memastikan Home dan Kotak Cari sejajar di tengah secara vertikal */
-    padding: 20px 10px; /* Memberi jarak 20px di kiri dan kanan agar tidak menempel ke tepi layar HP */
-    margin-top: -15px;
+    padding: 0px 10px; /* Memberi jarak 20px di kiri dan kanan agar tidak menempel ke tepi layar HP */
+    margin-top: 5px;
   }
       /* Wadah untuk menampung tombol sosial media */
   .menu-wadah {
@@ -159,12 +175,14 @@
   
   </head>
   <body>
-
+  
+  <div class="navigasi-tetap">
   <h1 class="black-ops-one-regular">♠♥ACES_TECH♦♣</h1>
   <!-- Bagian Tombol Header -->
   <div class="header">
   <a href="index.html" class="tombol-header">home</a>
-  <input type="text" placeholder="Search..." class="kotak-cari">    
+  <input type="text" placeholder="Search..." class="kotak-cari">
+  </div>
   </div>
   <h2 class="jura">Selamat Datang</h2>
   <p>Pilih Kategori di bawah!</p>
