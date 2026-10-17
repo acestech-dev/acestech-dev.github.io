@@ -1,1 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Aces Tech</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Jura&display=swap" rel="stylesheet">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+  
+  <style>
+  /* font */
+  .black-ops-one-regular {
+  font-family: Black Ops One, system-ui;
+  font-weight: 400;
+  font-style: normal;
+  text-align: center;
+  color: #ffffff;
+  text-shadow: 0px #000000;
+  -webkit-text-stroke: 1.8px #000000;
+  }
+  
+  .jura{
+  font-family: "Jura", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  }
+  
+  h1 {
+    border-top: 2.5px dashed #ffffff;
+    border-bottom: 2.5px dashed #ffffff;
+    padding-top: 0.08px;
+    padding-bottom: 0.08px;
+    margin-top: -5px;
+    margin-bottom: -1px;
+  }
+    
+  h2 {
+  margin-top: 50px;
+  padding-top: 0.25px;
+  padding-bottom: 0.25px;
+  text-align: center;
+  }
+  p {
+  margin-bottom: -25px;
+  text-align: center;
+  }
+  body {
+  /* Mengambil gambar dari URL (bisa pakai postimages seperti sebelumnya) */
+  background-image: url(latar_belakang.jpg);
+  
+  /* Membuat gambar menutupi seluruh layar tanpa terdistorsi/gepeng */
+  background-size: cover;
+  
+  /* Memastikan bagian tengah gambar selalu jadi fokus utama */
+  background-position: center;
+  
+  /* Mencegah gambar berulang seperti ubin jika ukurannya kekecilan */
+  background-repeat: no-repeat;
+  
+  /* KUNCI RAHASIA: Membuat gambar diam saat layar di-scroll! */
+  background-attachment: fixed; 
+
+  color: #ffffff; 
+  min-height: 100vh;
+  margin: 0; /* Menghilangkan margin bawaan browser */
+}
+  /* Wadah pelindung untuk membuat header menempel */
+  .navigasi-tetap {
+    position: sticky; /* KUNCI UTAMA: Membuat elemen menempel saat disentuh batas atas */
+    top: 0; /* Menempel tepat di titik 0 (paling atas layar) */
+    z-index: 999; /* Memastikan wadah ini selalu berada di lapisan paling depan, tidak tertimpa teks lain */
+    
+    /* Efek Kaca Buram agar teks yang lewat di bawahnya tidak mengganggu */
+    background-color: rgba(0, 0, 0, 0.4); 
+    backdrop-filter: blur(8px); 
+    -webkit-backdrop-filter: blur(8px); /* Untuk dukungan browser Safari/iPhone */
+    
+    padding-top: 20px; /* Jarak aman dari ujung atas HP */
+    padding-bottom: 5px;
+    margin-top: -20px; /* Menyesuaikan dengan margin body Anda sebelumnya */
+  }
+
+  /* untuk header website*/
+  .header {
+    display: flex;
+    flex-direction: row; /* Mengembalikan urutan dari kiri ke kanan */
+    justify-content: space-between; /* KUNCI UTAMA: Mendorong elemen ke ujung kiri dan kanan */
+    align-items: center; /* Memastikan Home dan Kotak Cari sejajar di tengah secara vertikal */
+    padding: 0px 10px; /* Memberi jarak 20px di kiri dan kanan agar tidak menempel ke tepi layar HP */
+    margin-top: 5px;
+  }
+      /* Wadah untuk menampung tombol sosial media */
+  .menu-wadah {
+    display: flex;
+    flex-direction: row; 
+    justify-content: flex-end; /* KUNCI UTAMA: Mendorong semua isi ke ujung Kanan */
+    gap: 15px; /* Jarak antar ikon sedikit dilebarkan */
+    padding: 0 20px; 
+    margin-top: 40px; 
+    margin-bottom: 20px; /* Memberi jarak dengan tulisan Thanks for Visit di bawahnya */
+    align-items: center;
+  }
+
+  /* Gaya untuk ikon sosial media */
+  .tombol-sosial {
+    background-color: rgba(0, 0, 0, 0.2);
+    color: #ffffff; /* Memastikan warna ikon putih terang */
+    text-decoration: none;
+    font-size: 24px; /* KUNCI UTAMA: Mengubah ukuran ikon (silakan ubah angkanya jika kurang besar) */
+    padding: 10px; /* Memberi ruang bantalan agar latar belakang tidak mencekik ikon */
+    border-radius: 50%; /* Membuat bentuk latar belakang menjadi bulat sempurna */
+    
+    /* 3 baris di bawah ini memastikan ikon persis berada di tengah lingkarannya */
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+  }
+
+  .menu-wadah1{
+    display: grid; /* Mengubah flex menjadi grid */
+    grid-template-rows: 1fr 1fr; /* Membagi wadah menjadi 2 kolom yang ukurannya sama (1 fraction) */
+    gap: 20px;
+    padding: 2px 2px;
+    margin-top: 40px;
+  }
+
+
+  /* Gaya untuk setiap tombol */
+  .tombol-header {
+  background-color: rgba(0, 0, 0, 0);
+  color: #ffffff;
+  text-decoration: none;
+  text-align: right;
+  padding: 2px;
+  border-radius: 0px;
+  font-family: Georgia, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.25px;
+  font-size: 10px;
+  }
+  .tombol {
+  background-color: rgba(0, 0, 0, 0.125); /* Warna hitam tembus pandang 40% */
+  color: #ffffff;
+  text-decoration: none; /* Menghilangkan garis bawah bawaan tautan */
+  text-align: center;
+  padding: 15px;
+  border: 2px solid #ffffff;
+  border-radius: 10px; /* Membuat sudut tombol melengkung */
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  text-transform: uppercase; /* Membuat huruf menjadi kapital semua */
+  letter-spacing: 2px;
+  }
+  .kotak-cari {
+  background-color: rgba(0, 0, 0, 0.2);
+  color: #ffffff;
+  border: 1px solid #ffffff;
+  border-radius: 5px;
+  padding: 2px 5px;
+  font-family: 'Jura', sans-serif;
+  font-size: 10px;
+  width: 80px; /* Lebar kotak pencarian */
+}
+/* Mengubah warna teks panduan (placeholder) menjadi putih pudar */
+.kotak-cari::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+
+  </style>
+  
+  </head>
+  <body>
+  
+  <div class="navigasi-tetap">
+  <h1 class="black-ops-one-regular">♠♥ACES_TECH♦♣</h1>
+  <!-- Bagian Tombol Header -->
+  <div class="header">
+  <a href="index.html" class="tombol-header">home</a>
+  <input type="text" placeholder="Search..." class="kotak-cari">
+  </div>
+  </div>
+  
+  <h2 class="jura">Education</h2>
+</body>
+</html>
 
